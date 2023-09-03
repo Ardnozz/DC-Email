@@ -1,4 +1,4 @@
-import { Client, Guild, GuildBasedChannel, REST, TextChannel } from "discord.js";
+import { Client, Guild, REST, TextChannel } from "discord.js";
 
 // DotEnv initialization
 import * as dotenv from 'dotenv';

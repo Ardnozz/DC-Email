@@ -1,7 +1,7 @@
 import ImapConnector from './imapConnector';
 import { ParsedMail, Source, simpleParser } from 'mailparser';
 import { dateToIMAPFormat, getDaysBefore } from './dateFormatter';
-import { logIfPresent, notify, notifyById } from '../errorHandler';
+import { notifyById } from '../errorHandler';
 import mainStorage from '../mainStorage';
 
 const SEEN_FLAG = '\\Seen';

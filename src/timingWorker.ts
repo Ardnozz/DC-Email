@@ -1,6 +1,6 @@
 import { APIEmbed, DiscordAPIError } from "discord.js";
 import EmailEmbedBulder from "./emailEmbedBuilder";
-import { logIfPresent, notify } from "./errorHandler";
+import { notify } from "./errorHandler";
 import { getUnreadEmails } from "./imap/imapRetriever";
 import mainStorage from "./mainStorage";
 

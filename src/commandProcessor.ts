@@ -1,18 +1,13 @@
-import { ApplicationCommandOptionType, ApplicationCommandType, CacheType, ChatInputCommandInteraction, Routes } from "discord.js";
+import { ApplicationCommandOptionType, CacheType, ChatInputCommandInteraction, Routes } from "discord.js";
 
 import mainStorage from "./mainStorage";
 import Command from "./commands/commandType";
-import TestCommand from "./commands/TestCommand";
 import LinkIMAPCommand from "./commands/linkIMAPCommand";
 import UnlinkIMAPCommand from "./commands/unlinkIMAPCommand";
 import listIMAPCommand from "./commands/listIMAPCommand";
 
 // Command registration
 const discord_commands = [
-  {
-    name: 'test',
-    description: 'Test slash command.'
-  },
   {
     name: 'link_email',
     description: 'Links an email to your discord account.',
@@ -68,7 +63,6 @@ const discord_commands = [
 ];
 
 const commands = {
-  test: new TestCommand(),
   link_email: new LinkIMAPCommand(),
   unlink_email: new UnlinkIMAPCommand(),
   linked_emails: new listIMAPCommand()
