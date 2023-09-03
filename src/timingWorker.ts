@@ -33,6 +33,7 @@ class TimingWorker {
               from: email.from,
               to: email.to,
               cc: email.cc,
+              bcc: email.bcc,
               date: email.date,
               text: email.text
             }).build() as APIEmbed

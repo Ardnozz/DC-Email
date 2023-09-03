@@ -5,6 +5,7 @@ interface Email {
   from?: AddressObject | AddressObject[];
   to?: AddressObject | AddressObject[];
   cc?: AddressObject | AddressObject[];
+  bcc?: AddressObject | AddressObject[];
   date?: Date;
   text?: string;
 }
@@ -13,7 +14,7 @@ class EmailEmbedBulder {
 
   private subject: string;
   private from: string;
-  private to: string;
+  private to?: string;
   private cc?: string;
   private date: string;
   private text: string;
@@ -24,8 +25,15 @@ class EmailEmbedBulder {
     let fromValue = (options.from as AddressObject | undefined)?.value[0];
     this.from = (fromValue?.name) ? `**${fromValue.name}** (${fromValue.address})` : `**${fromValue?.address || 'Sender\'s address not found'}**`;
     
-    if (options.to !== undefined) this.to = this.addressObjectStringParse(options.to as AddressObject, 'Receiver');
-    else this.to = 'Receiver/s not found at all';
+    // If email was send via BCC
+    if (options.bcc === undefined) {
+      if (options.to !== undefined) this.to = this.addressObjectStringParse(options.to as AddressObject, 'Receiver');
+      else this.to = 'Receiver/s not found at all';
+    } else {
+      let bccValue = (options.bcc as AddressObject | undefined)?.value[0];
+      this.to = (bccValue?.name) ? `**${bccValue.name}** (${bccValue.address})` : `${bccValue?.address || 'BCC\'s address not found'}`;
+    }
+
 
     if (options.cc !== undefined) this.to = this.addressObjectStringParse(options.to as AddressObject, 'Another receiver');
     else this.cc = 'nobody';
