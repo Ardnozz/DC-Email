@@ -5,7 +5,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 import { linkEmail, readStorage, removeUser, setupStorage, unlinkEmail } from "./storageManager";
-import ImapConnector, { EmailLink } from "./imap/imapConnector";
+import ImapConnector from "./imap/imapConnector";
 
 interface DataObject {
   rest?: REST;
