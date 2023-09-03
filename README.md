@@ -16,6 +16,7 @@ ERROR_CHANNEL_ID="ERROR_CHANNEL_ID"
 3. Create a discord server and insert the guild id and any text channel's id you want.
 4. Then run following command:
 ```
+npm install
 npm start
 ```
 
